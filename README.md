@@ -10,10 +10,26 @@ This repo is based on the Youtube video [$0 Embeddings (OpenAI vs. free & open s
 [Github](https://github.com/rabbit-hole-syndrome/open-source-embeddings/tree/main/apps): 
 
 ### Project setup:
+App Framework:
 - [Nuxt 3](https://nuxt.com/)
+> npx nuxi@latest init my-app
+
+Embedding library:
+- [huggingface.js](https://huggingface.co/docs/huggingface.js/index)
+> npm install @huggingface/inference
+
+Embedding models
+- [e5-small-v2](https://huggingface.co/intfloat/e5-small-v2)
+- [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
+
+Vector DB:
+- [Postgres](https://github.com/pgvector/pgvector)
+or/and
+- [Milvus](https://milvus.io/)
 
 ### Embeddings 101:
 - [Vector databases are so hot right now. WTF are they?](https://www.youtube.com/watch?v=klTvEwg3oJ4)
+
 
 ### Server-side Embeddings:
 - [Api route in Nuxt](https://nuxt.com/docs/guide/directory-structure/server)
@@ -106,6 +122,11 @@ This is like resizing a picture. You can make it bigger or smaller, but it's sti
 8. Transformers.js
 9. Embeddings in the Browser
 10. The Future of Embeddings
+
+## Other videos on the subject
+- [Llama Index 101 with Vector DBs and GPT 3.5](https://www.youtube.com/watch?v=WKvAWub8VCU)
+
+- [Fixing LLM Hallucinations with Retrieval Augmentation in LangChain #6](https://www.youtube.com/watch?v=kvdVduIJsc8&list=PLIUOU7oqGTLieV9uTIFMm6_4PXg-hlN6F&index=7)
 
 The source code for the project is available on GitHub.
 
