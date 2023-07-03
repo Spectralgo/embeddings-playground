@@ -1,4 +1,4 @@
-# Node.js project to compare Embeddings 
+# Nuxt project to compare embeddings models (open & close source) 
 
 ## Introduction
 Text embeddings are crucial for many downstream NLP applications as they are vector representations of text that encode semantic information.
