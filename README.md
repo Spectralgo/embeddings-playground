@@ -14,13 +14,11 @@ App Framework:
 - [Nuxt 3](https://nuxt.com/)
 > npx nuxi@latest init my-app
 
-Embedding library:
-- [huggingface.js](https://huggingface.co/docs/huggingface.js/index)
-> npm install @huggingface/inference
 
 Embedding models
 - [e5-small-v2](https://huggingface.co/intfloat/e5-small-v2)
 - [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
+
 
 Vector DB:
 - [Postgres](https://github.com/pgvector/pgvector)
@@ -117,9 +115,44 @@ We do this by dividing each part of the arrow by its total length. This way, we 
 This is like resizing a picture. You can make it bigger or smaller, but it's still the same picture.
 
 
-6. MTEB
-7. Inference API
+## Inference API - Huggingface.js
+We are going to use the huggingface npm pakage to call their api and use a model. The response will be a vector created from our payload.
+
+Get predictions from 80,000+ Transformers models (T5, Blenderbot, Bart, GPT-2, Pegasus...)
+Switch from one model to the next by just switching the model ID
+Use built-in integrations with over 20 Open-Source libraries (spaCy, SpeechBrain, etc).
+Upload, manage and serve your own models privately
+Run Classification, Image Segmentation, Automatic Speech Recognition, NER, Conversational, Summarization, Translation, Question-Answering, Embeddings Extraction tasks
+Out of the box accelerated inference on CPU powered by Intel Xeon Ice Lake
+
+- [huggingface.js](https://huggingface.co/docs/huggingface.js/index)
+> npm install @huggingface/inference
+
+
+
 8. Transformers.js
+- [Transformers.js](https://huggingface.co/docs/transformers.js/index)
+State-of-the-art Machine Learning for the web. Run 🤗 Transformers directly in your browser, with no need for a server! Can be used with node.js
+
+Although Transformers.js was originally designed to be used in the browser, it’s also able to run inference on the server.
+
+> npm i @xenova/transformers
+
+Api documentation:
+https://huggingface.co/docs/transformers.js/pipelines
+
+As an example, to create a sentiment analysis pipeline, you can do:
+```js 
+import { pipeline } from '@xenova/transformers';
+
+let classifier = await pipeline('sentiment-analysis');
+
+let result = await classifier('I love transformers!');
+// [{'label': 'POSITIVE', 'score': 0.9998}]
+```
+
+
+
 9. Embeddings in the Browser
 10. The Future of Embeddings
 

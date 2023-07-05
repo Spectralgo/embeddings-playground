@@ -2,8 +2,11 @@ import {HfInference} from "@huggingface/inference";
 
 export default defineEventHandler(async (event) => {
 
-  const HF_ACCESS_TOKEN: string | undefined = process.env.HF_ACCESS_TOKEN;
-  const hfInference = new HfInference(HF_ACCESS_TOKEN);
+
+  const config = useRuntimeConfig();
+
+
+  const hfInference = new HfInference(config.hfAccessToken);
   
   function dotProduct(a: number[], b: number[]) {
     if (a.length !== b.length) {
@@ -20,15 +23,17 @@ export default defineEventHandler(async (event) => {
   }
 
   const input_1=  'That is a happy person'
-  const input_2=  'Je ne suis pas ici'
+  // const input_2=  "C\'est une personne heureuse"
+  const input_2=  "Hey June, my hat is red. This is nice"
 
   const output1 = await hfInference.featureExtraction({
-    model: 'sentence-transformers/all-MiniLM-L6-v2',
+    // model: 'sentence-transformers/all-MiniLM-L6-v2',
+    model: 'ggrn/e5-small-v2', // fork of e5-small-v2  with sentence transformer tag. This help the huggingface api know we want only one vector for the whole input.
     inputs: input_1,
   });
 
   const output2 = await hfInference.featureExtraction({
-    model: 'sentence-transformers/all-MiniLM-L6-v2',
+    model: 'ggrn/e5-small-v2',
     inputs: input_2,
   });
 
@@ -47,4 +52,5 @@ export default defineEventHandler(async (event) => {
   }
 
   return res
+
 })
